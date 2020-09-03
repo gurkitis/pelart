@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\App;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,8 @@ Route::get('/', function () {
     }
     return view('auth/login');
 });
+
+Route::get('/localization/{locale}', 'LocalizationController@index');
 
 Auth::routes();
 

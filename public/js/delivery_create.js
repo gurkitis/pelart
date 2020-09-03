@@ -69,7 +69,7 @@ function totalPrice()
         elem = elem.split(' ');
         sum = sum + parseFloat(elem);
     }
-    document.getElementById('total_sum').innerText = 'Grand total : ' + String(sum) + ' eur';
+    document.getElementById('total_sum').innerText = String(sum) + ' eur';
 }
 
 function deleteRow()

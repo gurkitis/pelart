@@ -4,32 +4,32 @@
     <div class="container">
         <div class="list-group ">
             <li class="list-group-item active">
-                <h2>Add new product</h2>
+                <h2>{{ __('storage_create_messages.addNewProduct') }}</h2>
             </li>
             <li class="list-group-item">
                 <form action="/storage/store" method="POST">
                     @csrf
-                    <label for="product_nr">Product nr : </label>
+                    <label for="product_nr">{{ __('storage_create_messages.productNr') }} : </label>
                     <input type="text" name="product_nr">
                     @if ($errors->has('product_nr'))
-                        <span style="color:red;font-weight:bold">Invalid input</span>
+                        <span style="color:red;font-weight:bold">{{ __('storage_create_messages.invalidInput') }}</span>
                     @endif
                     <br>
 
-                    <label for="product_name">Product name : </label>
+                    <label for="product_name">{{ __('storage_create_messages.productName') }} : </label>
                     <input type="text" name="product_name">
                     @if ($errors->has('product_name'))
-                        <span style="color:red;font-weight:bold">Invalid input</span>
+                        <span style="color:red;font-weight:bold">{{ __('storage_create_messages.invalidInput') }}</span>
                     @endif
                     <br>
 
-                    <label for="volume">Volume : </label>
+                    <label for="volume">{{ __('storage_create_messages.volume') }} : </label>
                     <input type="number" min="1" name="volume"> ml
                     @if ($errors->has('volume'))
-                        <span style="color:red;font-weight:bold">Invalid input</span>
+                        <span style="color:red;font-weight:bold">{{ __('storage_create_messages.invalidInput') }}</span>
                     @endif
                     <br>
-                    <input type="submit" value="Add">
+                    <input type="submit" value="{{ __('storage_create_messages.add') }}">
                 </form>
             </li>
         </div>

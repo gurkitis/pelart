@@ -89,7 +89,7 @@ function totalPrice()
         elem = parseFloat(elem.split(' ')[0]);
         sum = sum + elem;
     }
-    document.getElementById('total_sum').innerText = 'Grand total : ' + String(parseFloat(sum).toFixed(2)) + ' eur';
+    document.getElementById('total_sum').innerText =String(parseFloat(sum).toFixed(2)) + ' eur';
     return sum;
 }
 

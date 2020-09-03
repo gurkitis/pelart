@@ -5,26 +5,26 @@
     <div class="container">
         <div class="list-group">
             <li class="list-group-item active">
-                <h2>New Delivery</h2>
+                <h2>{{ __('delivery_create_messages.newDelivery')}}</h2>
             </li>
             <form action="/delivery/store" method="POST">
                 @csrf
                 <li class="list-group-item primary list-group-item-info">
                     <div class="row">
                         <div class="col-4">
-                            <h4>Product</h4>
+                            <h4>{{ __('delivery_create_messages.product')}}</h4>
                         </div>
                         <div class="col">
-                            <h4>Price per item</h4>
+                            <h4>{{ __('delivery_create_messages.pricePerItem')}}</h4>
                         </div>
                         <div class="col">
-                            <h4>Quantity</h4>
+                            <h4>{{ __('delivery_create_messages.quantity')}}</h4>
                         </div>
                         <div class="col">
-                            <h4>Dameged?</h4>
+                            <h4>{{ __('delivery_create_messages.damaged')}}</h4>
                         </div>
                         <div class="col">
-                            <h4>Total</h4>
+                            <h4>{{ __('delivery_create_messages.total')}}</h4>
                         </div>
                     </div>
                 </li>
@@ -69,26 +69,28 @@
                     <input type="hidden" name="count" value="1" id="input_count">
                     <div class="row">
                         <div class="col-4">
-                            <label for="date">Delivery date </label>
+                            <label for="date">{{ __('delivery_create_messages.deliveryDate')}} </label>
                             <input type="date" name="date" >
                             <br>
-                            <input class="btn btn-primary" type="submit" value="Submit">
+                            <input class="btn btn-primary" type="submit" value="{{ __('delivery_create_messages.submit')}}">
                         </div>
                         <div class="col">
-                            <input class="btn btn-primary" type="button" onClick="addRow()" value="Add item">
-                            <input class="btn btn-primary" type="button" onClick="deleteRow()" value="Delete item">
+                            <input class="btn btn-primary" type="button" onClick="addRow()" value="{{ __('delivery_create_messages.addItem')}}">
+                            <input class="btn btn-primary" type="button" onClick="deleteRow()" value="{{ __('delivery_create_messages.deleteItem')}}">
                         </div>
                         <div class="col">
-                            <a class="btn btn-primary" href="/storage/create">Add new product</a>
+                            <a class="btn btn-primary" href="/storage/create">{{ __('delivery_create_messages.addNewProduct')}}</a>
                         </div>
                         <div class="col">
-                            <h4 id="total_sum">Grand total : 0 eur</h4>
+                            <div class="row">
+                                <h4>{{ __('delivery_create_messages.grandTotal')}} : </h4><h4 id="total_sum">0 eur</h4>
+                            </div>
                         </div>
                     </div>
                 </li>
             </form>
             @if (!$errors->isEmpty())
-                <span style="color:red;font-weight:bold">Invalid input</span>
+                <span style="color:red;font-weight:bold">{{ __('delivery_create_messages.invalidInput')}}</span>
             @endif
         </div>
     </div>

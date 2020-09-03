@@ -38,6 +38,20 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ App::getLocale() }} <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                @foreach (config('app.locales') as $locale)
+                                    @if ($locale != App::getLocale())
+                                        <a class="dropdown-item" href="/localization/{{ $locale }}">
+                                            <p>{{ $locale }}</p>
+                                        </a>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
