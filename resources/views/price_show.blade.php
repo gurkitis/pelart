@@ -9,7 +9,7 @@
             <a href="#buy" data-toggle="collapse" class="list-group-item list-group-item-primary list-group-item-action">
                 <h3>{{ __('price_show_messages.buyPrices') }}</h3>
             </a>
-            <div class="collapse" id="buy">
+            <div class="collapse show" id="buy">
                 <li class="list-group-item list-group-item-info">
                     <div class="row">
                         <div class="col"><h4>{{ __('price_show_messages.priceActiveFrom') }}</h4></div>
@@ -82,12 +82,12 @@
             <a href="#sale" data-toggle="collapse" class="list-group-item list-group-item-primary list-group-item-action">
                 <h3>{{ __('price_show_messages.sellPrices') }}</h3>
             </a>
-            <div class="collapse" id="sale">
+            <div class="collapse show" id="sale">
                 @foreach ($all_sale_prices as $price_type)
                     <a href="#type_{{ $price_type['type']->id }}" data-toggle="collapse" class="list-group-item list-group-item-action">
                         <h4>{{ $price_type['type']->name }}</h4>
                     </a>
-                    <div class="collapse container list-group-item" id="type_{{ $price_type['type']->id }}">
+                    <div class="collapse show container list-group-item" id="type_{{ $price_type['type']->id }}">
                         <li class="list-group-item list-group-item-info">
                             <div class="row">
                                 <div class="col"><h4>{{ __('price_show_messages.priceActiveFrom') }}</h4></div>
