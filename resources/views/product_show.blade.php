@@ -49,13 +49,13 @@
                     <div class="card-body">
                         <h5 class="card-subtitle">{{ __('product_show_messages.buyPrice') }}</h5>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">{{ $buyPrice }}eur</li>
+                            <li class="list-group-item">{{ $buyPrice }}</li>
                         </ul>
                         <br>
                         <h5 class="card-subtitle">{{ __('product_show_messages.salePrice') }}</h5>
                         <ul class="list-group list-group-flush">
                             @foreach ($sellPrices as $key => $salePrice)
-                                <li class="list-group-item">{{ $key }} : {{ $salePrice }}eur</li>
+                                <li class="list-group-item">{{ $key }} : {{ $salePrice }}</li>
                             @endforeach
                         </ul>
                         <a href="/price/show/{{ $product->id }}" class="btn btn-primary">{{ __('product_show_messages.edit') }}</a>

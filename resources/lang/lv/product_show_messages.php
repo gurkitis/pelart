@@ -8,5 +8,6 @@
         'buyPrice' => 'Iepirkuma cena',
         'salePrice' => 'Pārdošanas cena',
         'edit' => 'rediģēt',
-        'submit' => 'iesniegt'
+        'submit' => 'iesniegt',
+        'noPrice' => 'Cena nav iestatīta'
     ];

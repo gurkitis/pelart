@@ -8,5 +8,6 @@
         'buyPrice' => 'Buy price',
         'salePrice' => 'Sale price',
         'edit' => 'edit',
-        'submit' => 'submit'
+        'submit' => 'submit',
+        'noPrice' => 'Price is not set'
     ];

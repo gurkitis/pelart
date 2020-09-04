@@ -17,14 +17,28 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        $buyPrice = Buy_price::where([['product_id', $id], ['active_from', '<=', date('Y-m-d')]])->orderBy('active_from', 'desc')->get()[0]->value;
-        $buyPrice = number_format($buyPrice, 2);
+        $buyPrice = Buy_price::where([['product_id', $id], ['active_from', '<=', date('Y-m-d')]])->orderBy('active_from', 'desc')->get();
+        if (!empty($buyPrice[0])) {
+            $buyPrice = $buyPrice[0]->value;
+            $buyPrice = number_format($buyPrice, 2);
+            $buyPrice = $buyPrice.' eur';
+        } else {
+            $buyPrice = __('product_show_messages.noPrice');
+        }
+        
+        
         $sellTypes = Price_type::all();
         $sellPrices = array();
         foreach ($sellTypes as $sellType)
         {
-            $sellPrice = Sale_price::where([['product_id', $id], ['price_type_id', $sellType['id']], ['active_from', '<=', date('Y-m-d')]])->orderBy('active_from', 'desc')->get()[0]->value;
-            $sellPrice = number_format($sellPrice, 2);
+            $sellPrice = Sale_price::where([['product_id', $id], ['price_type_id', $sellType['id']], ['active_from', '<=', date('Y-m-d')]])->orderBy('active_from', 'desc')->get();
+            if (!empty($sellPrice[0])) {
+                $sellPrice = $sellPrice[0]->value;
+                $sellPrice = number_format($sellPrice, 2);
+                $sellPrice = $sellPrice.' eur';
+            } else {
+                $sellPrice = __('product_show_messages.noPrice');
+            }
             $sellPrices[$sellType['name']] = $sellPrice;
         }
         $product = Product::find($id);

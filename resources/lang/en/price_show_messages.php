@@ -15,5 +15,4 @@
         'price' => 'price',
         'invalidInput' => 'Invalid input',
         'sellPrices' => 'Sell prices',
-
     ];
