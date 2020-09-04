@@ -38,7 +38,7 @@
                             <div class="col">{{ $product->volume }} ml</div>
                             <div class="col">{{ $product->quantity }}</div>
                             <div class="col">
-                                <a class="btn btn-primary" href="/product/{{ $product->nr }}" role="button">{{ __('storage_index_messages.show') }}</a>
+                                <a class="btn btn-primary" href="/product/{{ $product->id }}" role="button">{{ __('storage_index_messages.show') }}</a>
                             </div>
                         </div>
                     </li>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Price;
+use App\Buy_price;
+use App\Sale_price;
 use App\Product;
+use App\Price_type;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,8 +17,46 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        $price = Price::where('product_nr', $id)->get()[0];
-        $product = Product::where('nr', $id)->get()[0];
-        return view('product_show', ['price' => $price, 'product' => $product]);
+        $buyPrice = Buy_price::where([['product_id', $id], ['active_from', '<=', date('Y-m-d')]])->orderBy('active_from', 'desc')->get()[0]->value;
+        $buyPrice = number_format($buyPrice, 2);
+        $sellTypes = Price_type::all();
+        $sellPrices = array();
+        foreach ($sellTypes as $sellType)
+        {
+            $sellPrice = Sale_price::where([['product_id', $id], ['price_type_id', $sellType['id']], ['active_from', '<=', date('Y-m-d')]])->orderBy('active_from', 'desc')->get()[0]->value;
+            $sellPrice = number_format($sellPrice, 2);
+            $sellPrices[$sellType['name']] = $sellPrice;
+        }
+        $product = Product::find($id);
+        return view('product_show', ['buyPrice' => $buyPrice, 'sellPrices' => $sellPrices, 'product' => $product]);
+    }
+
+    public function edit(Request $request)
+    {
+        $rules = array(
+            'product_id' => 'required|numeric|exists:products,id',
+            'product_nr' => 'unique:products,product_nr|string|nullable',
+            'product_name' => 'string|nullable',
+            'volume' => 'numeric|min:1|nullable'
+        );
+
+        $this->validate($request, $rules);
+
+        $product = Product::find($request['product_id']);
+
+        if ($request['product_nr'])
+        {
+            $product->product_nr = $request['product_nr'];
+        }
+        if ($request['product_name'])
+        {
+            $product->name = $request['product_name'];
+        }
+        if ($request['volume'])
+        {
+            $product->volume = $request['volume'];
+        }
+        $product->save();
+        return back();
     }
 }

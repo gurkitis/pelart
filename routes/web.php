@@ -29,6 +29,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/product/{id}', 'ProductController@show');
+Route::post('/product/edit', 'ProductController@edit');
 
 Route::get('/storage/create', 'StorageController@create');
 Route::post('/storage/store', 'StorageController@store');
