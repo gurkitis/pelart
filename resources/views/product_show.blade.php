@@ -44,7 +44,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Prices</h4>
+                        <h4>{{ __('product_show_messages.prices') }}</h4>
                     </div>
                     <div class="card-body">
                         <h5 class="card-subtitle">{{ __('product_show_messages.buyPrice') }}</h5>
