@@ -13,7 +13,7 @@ function addRow()
     content.getElementsByTagName('input')[2].name = 'quantity_'+String(id);
     content.getElementsByTagName('input')[2].id = 'quantity_'+String(id);
     content.getElementsByTagName('input')[2].setAttribute('onchange','outputChange('+String(id)+')');
-    content.getElementsByTagName('input')[3].name = 'damaged_'+String(id);
+    content.getElementsByTagName('input')[3].name = 'dameged_'+String(id);
     content.getElementsByTagName('p')[1].id = 'sum_'+String(id);
     content.getElementsByTagName('p')[1].innerText = '0 eur';
     let parent = document.getElementById('append_here');

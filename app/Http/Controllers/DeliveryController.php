@@ -38,7 +38,6 @@ class DeliveryController extends Controller
             $rules['quantity_'.$i] = 'required|numeric|min:1';
             $rules['damaged_'.$i] = 'boolean';
         }
-
         $this->validate($request, $rules);
 
         for ($i=0; $i < $request->count; $i++) 

@@ -50,7 +50,7 @@
                                 <input type="number" name="quantity_0" id="quantity_0" value="0" min="0" onChange="outputChange(0)">
                             </div>
                             <div class="col">
-                                <input type="checkbox" name="dameged_0" >
+                                <input type="checkbox" name="dameged_0" value="1">
                             </div>
                             <div class="col">
                                 <div class="row">
