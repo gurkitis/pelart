@@ -7,6 +7,7 @@ use App\Sale_price;
 use App\Product;
 use App\Price_type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -26,7 +27,6 @@ class ProductController extends Controller
             $buyPrice = __('product_show_messages.noPrice');
         }
         
-        
         $sellTypes = Price_type::all();
         $sellPrices = array();
         foreach ($sellTypes as $sellType)
@@ -42,6 +42,7 @@ class ProductController extends Controller
             $sellPrices[$sellType['name']] = $sellPrice;
         }
         $product = Product::find($id);
+
         return view('product_show', ['buyPrice' => $buyPrice, 'sellPrices' => $sellPrices, 'product' => $product]);
     }
 

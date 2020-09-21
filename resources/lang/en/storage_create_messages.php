@@ -6,4 +6,5 @@
         'productName' => 'Product name',
         'volume' => 'Volume',
         'add' => 'Add',
+        'image' => 'Image',
     ];

@@ -6,4 +6,5 @@
         'productName' => 'Produkta nosaukums',
         'volume' => 'Tilpums',
         'add' => 'Pievienot',
+        'image' => 'Attēls',
     ];

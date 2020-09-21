@@ -63,5 +63,17 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>{{ __('product_show_messages.image')}}</h4>
+                    </div>
+                    <div class="card-body">
+                        <img src="{{ URL::to('/') }}/storage/product_img/{{ $product->img_name }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
