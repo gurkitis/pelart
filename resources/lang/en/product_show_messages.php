@@ -9,5 +9,6 @@
         'salePrice' => 'Sale price',
         'edit' => 'edit',
         'submit' => 'submit',
-        'noPrice' => 'Price is not set'
+        'noPrice' => 'Price is not set',
+        'image' => 'Image'
     ];

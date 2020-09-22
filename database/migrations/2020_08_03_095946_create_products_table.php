@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->longText('name');
             $table->float('volume');
             $table->integer('quantity')->default(0);
+            $table->string('img_name')->nullable();
             $table->timestamps();
         });
     }

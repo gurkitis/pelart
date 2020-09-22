@@ -9,5 +9,6 @@
         'salePrice' => 'Pārdošanas cena',
         'edit' => 'rediģēt',
         'submit' => 'iesniegt',
-        'noPrice' => 'Cena nav iestatīta'
+        'noPrice' => 'Cena nav iestatīta',
+        'image' => 'Attēls'
     ];
